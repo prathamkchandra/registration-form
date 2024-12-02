@@ -1,14 +1,15 @@
 $(document).ready(function () {
-    $("#registrationForm").on("submit", function (event) {
-        event.preventDefault();
-
-        // Serialize form data
-        const formData = $(this).serialize();
-
-        // Send data to server
-        $.post("process.php", formData, function (response) {
-            // Display the server's response
-            $("#result").html(response).slideDown();
-        });
+    $("#registrationForm").on("submit", function (e) {
+      let name = $("#name").val();
+      let email = $("#email").val();
+      let phone = $("#phone").val();
+  
+      if (!name || !email || !phone) {
+        alert("All fields are required!");
+        e.preventDefault(); // Prevent form submission
+      } else {
+        alert("Form submitted successfully!");
+      }
     });
-});
+  });
+  
